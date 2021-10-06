@@ -115,8 +115,15 @@ Array.prototype.myPush = function(...args) {
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-
+Array.prototype.myLastIndexOf = function(search, index) {
+    let end = (index === undefined || index > 0) ? 0 : index;
+  	let start = (index < 0) ? (this.length - 1) + index: this.length - 1
+    for(start; start >= end; start--){
+        if(this[start] === search){
+            return start;
+        }
+    }
+    return -1;
 };
 
 // KEYS //
