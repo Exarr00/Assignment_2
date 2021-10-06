@@ -1,6 +1,11 @@
 // FOR EACH //
-Array.prototype.myEach = function() {
-
+Array.prototype.myEach = function(callbackFn) {
+    for(let i = 0; i < this.length; i++){
+        if (this[i] === undefined){
+            continue;
+        }
+        callbackFn(this[i], i, this);
+    }
 };
 
 // MAP //
@@ -57,4 +62,13 @@ Object.grabKeys = function() {
 Object.grabValues = function() {
 
 };
+
+
+//Test//
+const eacharray = ['a', 'b', 'c' ,,,'d'];
+console.log('test for myeach')
+eacharray.forEach(x => console.log(x));
+eacharray.myEach(x => console.log(x));
+console.log('____________________')
+
 
