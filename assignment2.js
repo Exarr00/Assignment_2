@@ -139,9 +139,15 @@ Object.grabKeys = function(object) {
 };
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(object) {
+    const newArr = [];
+    let arg_i = 0;
+    for(const prop in object)
+    {
+        newArr[arg_i] = object[prop];
+        arg_i++;
+    }
+    return newArr;
 };
-
 
 
