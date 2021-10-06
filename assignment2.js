@@ -127,8 +127,15 @@ Array.prototype.myLastIndexOf = function(search, index) {
 };
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(object) {
+    const newArr = [];
+    let arg_i = 0;
+    for(const prop in object)
+    {
+        newArr[arg_i] = prop;
+        arg_i++;
+    }
+    return newArr;
 };
 
 // VALUES //
