@@ -21,8 +21,20 @@ Array.prototype.myMap = function(callbackFn) {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
+Array.prototype.myFilter = function(callbackFn) {
+    const newArr = [];
+    let arg_i = 0;
+    for(let i = 0; i < this.length; i++){
+        if (this[i] === undefined){
+            continue;
+        }
+        if (callbackFn(this[i],i,this)){
+            newArr[arg_i] = this[i];
+            arg_i++;
+        }
 
+    }
+    return newArr;
 };
 
 // SOME //
@@ -70,18 +82,5 @@ Object.grabValues = function() {
 
 };
 
-
-//Test//
-const eacharray = ['a', 'b', 'c' ,,,'d'];
-console.log('test for myeach')
-eacharray.forEach(x => console.log(x));
-eacharray.myEach(x => console.log(x));
-console.log('____________________')
-const arr = [1,4,9,16];
-console.log('test for mymap')
-console.log('Map checks')
-console.log(arr.map(x => x*2))
-console.log(arr.myMap(x => x*2))
-console.log('____________________')
 
 
