@@ -91,8 +91,15 @@ Array.prototype.myIncludes = function(search, index) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-
+Array.prototype.myIndexOf = function(search, index) {
+    let start = (index === undefined) ? 0 :
+    	(index < 0) ? this.length + index : index;;
+    for(start; start < this.length; start++){
+        if(this[start] === search){
+            return start;
+        }
+    }
+    return -1;
 };
 
 // PUSH //
