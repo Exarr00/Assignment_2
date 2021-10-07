@@ -65,12 +65,17 @@ Array.prototype.myEvery = function(callbackFn) {
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn, initialVal) {
-    let result = (initialVal === undefined) ? 0 : initialVal;
-    for(let i = 0; i < this.length; i++){
-        if (this[i] === undefined){
+    let result = (initialVal !== undefined) ? initialVal : undefined;
+  	let start = 0;
+  	while(result === undefined){
+      result = this[start];
+      start++;
+    }
+    for(start; start < this.length; start++){
+        if (this[start] === undefined){
             continue;
         }
-        result = callbackFn(result,this[i],i,this);
+        result = callbackFn(result,this[start],start,this);
     }
     return result;
 };
